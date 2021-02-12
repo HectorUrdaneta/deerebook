@@ -5,7 +5,7 @@ import axios from 'axios';
 import Profile from './components/Profile';
 import FriendsPage from './components/FriendsPage';
 
-//import { Route, Link, Switch, Redirect } from 'react-router-dom';import logo from './logo.svg';
+import { Route, Link, Switch, Redirect } from 'react-router-dom';import logo from './logo.svg';
 
 class App extends Component {
   constructor(props){
@@ -36,16 +36,25 @@ class App extends Component {
       friendFive.data.results[0]];
     this.setState ({
       potentialFriends: friends,
-      apiDataLoaded: true
+      
     })
   }     
 
   render() {
     return (
       <div className="App">
+        <nav>
+          <Link to="/">Profile</Link>
+          <Link to="/users">Users</Link>
+        </nav>
         <h1>CaseyBook</h1>
-        <Profile user={this.state.user} />
-        <FriendsPage potentialFriends={this.state.potentialFriends}/>
+        <Route path="/" render={() => (
+          <Profile user={this.state.user}/>
+        )} />
+        <Route path="/users" render={() => (
+          <FriendsPage potentialFriends={this.state.potentialFriends}/>
+        )} />
+        
         
       </div>
     );

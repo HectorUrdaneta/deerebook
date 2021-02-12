@@ -13,7 +13,7 @@ class App extends Component {
         name: "Casey Harding",
         username:"CRHarding",
         image: "https://pyxis.nymag.com/v1/imgs/d03/4b9/90a25fc9186862b0ce9c59b2529e792d32-StanLeevulturefinal.rhorizontal.w1100.jpg",
-        friendList: [] 
+        friendList: ["Leo"] 
       },
       apiDataLoaded: false,
       potentialFriends: []
@@ -25,7 +25,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>CaseyBook</h1>
-        <Profile />
+        <Profile user={this.state.user} />
         
       </div>
     );
